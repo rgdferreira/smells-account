@@ -1,5 +1,5 @@
 package com.uol.smells;
 
-public class AbstractPersonAccount extends AbstractAccount {
+public abstract class AbstractPersonAccount extends AbstractAccount {
 
 }
