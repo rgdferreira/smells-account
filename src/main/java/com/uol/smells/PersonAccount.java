@@ -7,6 +7,7 @@ public class PersonAccount extends AbstractPersonAccount {
 	private String[] statementDescription = new String[10];
 	private double[] statementValue = new double[10];
 	private double balance;
+	private int status;
 	
 	@Override
 	public void deposit(double value) {
@@ -105,5 +106,21 @@ public class PersonAccount extends AbstractPersonAccount {
 	@Override
 	public String toString() {
 		return this.id + "";
+	}
+	
+	public double getBalanceValue() {
+		return balance;
+	}
+	
+	public int getStatusAccount() {
+		return status;
+	}
+
+	public void setStatusAccount(int status) {
+		this.status = status;
+	}
+
+	public String getStatement(int position) {
+		return statementDescription[position] + statementValue[position];
 	}
 }

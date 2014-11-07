@@ -6,5 +6,5 @@ public interface Account {
 	boolean withdraw(double value);
 	boolean transferToAccount(Account account, double value);
 	void receiveTransfer(double value);
-	
+	void closeAccount();
 }

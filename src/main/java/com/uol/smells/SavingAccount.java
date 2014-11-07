@@ -67,4 +67,12 @@ public class SavingAccount extends AbstractAccount {
 	public String toString() {
 		return this.id + "";
 	}
+	
+	public double getBalance() {
+		return balance;
+	}
+	
+	public String getStatement(int position) {
+		return statementDescription[position] + statementValue[position];
+	}
 }

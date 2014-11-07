@@ -7,9 +7,15 @@ public class CompanyAccount extends AbstractCompanyAccount {
 	private String[] statementDescription = new String[10];
 	private double[] statementValue = new double[10];
 	private double balance;
+	private int status;
 	
 	@Override
 	public void deposit(double value) {
+		
+		if(value < 0) {
+			return;
+		}
+		
 		balance += value;
 		
 		 int newSize = size + 1;
@@ -31,6 +37,10 @@ public class CompanyAccount extends AbstractCompanyAccount {
 	@Override
 	public boolean withdraw(double value) {
 		if(balance < value) {
+			return false;
+		}
+		
+		if(value < 0) {
 			return false;
 		}
 		
@@ -56,6 +66,10 @@ public class CompanyAccount extends AbstractCompanyAccount {
 
 	@Override
 	public boolean transferToAccount(Account account, double value) {
+		if(value < 0) {
+			return false;
+		}
+		
 		if(balance < value) {
 			return false;
 		}
@@ -105,5 +119,21 @@ public class CompanyAccount extends AbstractCompanyAccount {
 	@Override
 	public String toString() {
 		return this.id + "";
+	}
+
+	public double getBalance() {
+		return balance;
+	}
+	
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public String getStatement(int position) {
+		return statementDescription[position] + " - " + statementValue[position];
 	}
 }
