@@ -3,7 +3,7 @@ package com.uol.smells;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class CompanyAccountDepositTest {
+public class CompanyAccountTest {
 
 	@Test
 	public void depositPositiveValues() {

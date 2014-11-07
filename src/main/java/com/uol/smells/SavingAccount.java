@@ -10,6 +10,10 @@ public class SavingAccount extends AbstractAccount {
 	
 	@Override
 	public void deposit(double value) {
+		if(value < 0) {
+			return;
+		}
+		
 		balance += value;
 		
 		 int newSize = size + 1;
@@ -30,6 +34,10 @@ public class SavingAccount extends AbstractAccount {
 	
 	@Override
 	public boolean withdraw(double value) {
+		if(value < 0) {
+			return false;
+		}
+		
 		if(balance < value) {
 			return false;
 		}
@@ -73,6 +81,6 @@ public class SavingAccount extends AbstractAccount {
 	}
 	
 	public String getStatement(int position) {
-		return statementDescription[position] + statementValue[position];
+		return statementDescription[position] + " - " + statementValue[position];
 	}
 }

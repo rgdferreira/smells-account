@@ -11,6 +11,10 @@ public class PersonAccount extends AbstractPersonAccount {
 	
 	@Override
 	public void deposit(double value) {
+		if(value < 0) {
+			return;
+		}
+		
 		balance += value;
 		
 		 int newSize = size + 1;
@@ -31,6 +35,10 @@ public class PersonAccount extends AbstractPersonAccount {
 	
 	@Override
 	public boolean withdraw(double value) {
+		if(value < 0) {
+			return false;
+		}
+		
 		if(balance < value) {
 			return false;
 		}
@@ -57,6 +65,10 @@ public class PersonAccount extends AbstractPersonAccount {
 
 	@Override
 	public boolean transferToAccount(Account account, double value) {
+		if(value < 0) {
+			return false;
+		}
+		
 		if(balance < value) {
 			return false;
 		}
@@ -121,6 +133,6 @@ public class PersonAccount extends AbstractPersonAccount {
 	}
 
 	public String getStatement(int position) {
-		return statementDescription[position] + statementValue[position];
+		return statementDescription[position] + " - " + statementValue[position];
 	}
 }
